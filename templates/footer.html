@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Footer</title>
+</head>
+
+<body>
+
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+
+    <div class="row bg-dark text-white">
+        <div class="col-md-4 p-3">
+            <h5>Address</h5>
+            <hr>
+            2nd Floor, Landmark Building <br>
+            Fc Road, <br>
+            Pune-411002 <br>
+            Maharashtra <br>
+            Contact: 7878787878
+        </div> <!-- End of Address -->
+
+        <div class="col-md-4 p-3">
+            <h5>Quick Links</h5>
+            <hr>
+            <a href="/home" class="anchor"><strong>Home</strong></a> <br>
+            <a href="/about" class="anchor"><strong>About</strong></a> <br>
+            <a href="/contact" class="anchor"><strong>Contact</strong></a>
+        </div> <!-- End of Quick Links -->
+
+        <!-- Social Media Icons -->
+        <div class="col-md-4 p-3">
+            <h5>Connect us</h5>
+            <hr>
+            <h5 class="social"><a href="https://www.facebook.com"><i class="bi bi-facebook"></i></a></h5>
+            <h5 class="social"><a href="https://www.instagram.com"><i class="bi bi-instagram mr-3"></i></a></h5>
+            <h5 class="social"><a href="https://in.linkedin.com"><i class="bi bi-linkedin mr-3"></i></a></h5>
+            <h5 class="social"><a href="https://twitter.com/?lang=en"><i class="bi bi-twitter mr-3"></i></a></h5>
+        </div> <!-- End of Social Media Icon -->
+
+    </div> <!-- End of footer -->
+
+</body>
+
+</html>

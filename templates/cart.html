@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'main' %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-9 p-3 d-flex flex-column justify-content-center">
+            <br>
+            <h5 class="bg-dark text-white p-2">Customer details</h5>
+            <br>
+            {% for x in products %}
+            {% if forloop.counter == 1 %}
+            <p><strong>Name:</strong>&nbsp;&nbsp;{{x.uid.first_name}}</p>
+            <p><strong>Mobile:</strong>&nbsp;&nbsp;{{x.uid.last_name}}</p>
+            <p><strong>email:</strong>&nbsp;&nbsp;{{x.uid.email}}</p>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <div class="col-md-3 p-2 d-flex flex-column justify-content-center">
+            <br>
+            <h5 class="bg-dark text-white p-2">Total amount</h5>
+            <br>
+            <p><strong>Total({{n}}items):</strong>&nbsp;&nbsp;Rs.{{total}}</p>
+            <p><strong>Total amount:</strong>&nbsp;&nbsp;Rs.{{total}}</p>
+            <a href="/placeorder"><button class="btn btn-danger">Place order</button></a>
+
+        </div>
+    </div>
+    <h5 class="bg-dark text-white p-2">Cart-Details</h5>
+    <br>
+    <div class="row">
+        {% for x in products %}
+        <div class="col-md-4 d-flex align-items-center justify-content-center">
+            <img src="{{ x.pid.pimage.url }}" width="70%" height="90%" alt="">
+        </div>
+        <div class="col-md-8 d-flex flex-column justify-content-center">
+            <p><strong>Product Name:</strong>&nbsp;&nbsp;{{x.pid.name}}</p>
+            <p><strong>Price:</strong>&nbsp;&nbsp;{{x.pid.price}}</p>
+            {% if x.pid.cat == 1 %}
+            <p><strong>Category:</strong>&nbsp;&nbsp;Mobile</p>
+            {% elif x.pid.cat == 2 %}
+            <p><strong>Category:</strong>&nbsp;&nbsp;Shoes</p>
+            {% else %}
+            <p><strong>Category:</strong>&nbsp;&nbsp;Cloths</p>
+            {% endif %}
+            <p><strong>Product Detail:</strong>&nbsp;&nbsp;{{x.pid.pdetails}}</p>
+
+            <p>
+                <strong>QTY:</strong>
+                <a href="/updateqty/0/{{x.id}}"><button class="btn btn-dark">-</button></a>
+                <input type="number" value="{{x.qty}}">
+                <a href="/updateqty/1/{{x.id}}"><button class="btn btn-dark">+</button></a>
+            </p>
+
+            <a href="/remove/{{x.id}}"><button class="btn btn-danger">Remove</button></a>
+        </div> <!-- cart product 1 !-->
+        {% endfor %}
+
+    </div>
+</div>
+<br>
+{% endblock 'main' %}

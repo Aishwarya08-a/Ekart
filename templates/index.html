@@ -1,0 +1,65 @@
+{% extends 'base.html' %} <!--Inherited base.html or we using base.html in index.html-->
+{% block 'main' %}
+<!--main body-->
+<div class="container-fluid">
+    <div class="row"> <!--Start of sidebar-->
+        <div class="col-md-3 mt-4 p-3 bg-light text-dark">
+            <h5>Filter by Category</h5>
+            <hr>
+            <p><a href="/home" class="anchor filter">All</a></p>
+            <p><a href="/catfilter/1" class="anchor filter">By Mobile</a></p>
+            <p><a href="/catfilter/2" class="anchor filter">By Shoes</a></p>
+            <p><a href="/catfilter/3" class="anchor filter">By Clothes</a></p>
+            <h5>Filter by Price</h5>
+            <hr>
+            <form method="GET" action="/range">
+                <div class="mb-3">
+                    <label for="Input1" class="form-label"><strong>Min</strong></label>
+                    <input type="number" class="form-control" name="min" id="Input1" placeholder="enter minimum value">
+                </div>
+                <div class="mb-3">
+                    <label for="Input2" class="form-label"><strong>Max</strong></label>
+                    <input type="number" class="form-control" name="max" id="Input2" placeholder="enter maximum value">
+                </div>
+                <div class="mb-3">
+                    <input type="submit" class="btn btn-dark" value="Search">
+                </div>
+            </form>
+            <h5>Sort by Price</h5>
+            <hr>
+            <p><a href="/sort/0" class="anchor filter">Low to High</a></p>
+            <p><a href="/sort/1" class="anchor filter">High to Low</a></p>
+        </div> <!--End of sidebar-->
+
+        <div class="col-md-9 mt-4 p-3 bg-light text-dark">
+            <div class="row">
+                {% for x in products %}
+                <div class="col-md-3 mb-3">
+                    <div class="card h-100 w-100">
+                        <img src="{{x.pimage.url}}" class="card-img-top h-50 w-100" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{x.name}}</h5>
+                            <p class="card-text">{{x.price}}</p>
+                            {% if x.cat == 1 %}
+                            <p class="card-text">Mobile</p>
+                            {% elif x.cat == 2 %}
+                            <p class="card-text">Shoes</p>
+                            {% else %}
+                            <p class="card-text">Clothes</p>
+                            {% endif %}
+                            <a href="/product_detail/{{x.id}}" class="btn btn-dark"> See Details</a>
+                        </div>
+                    </div>
+                </div> <!--Product1 end-->
+                {% endfor %}
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<!--End of Product List-->
+<!--End of main body-->
+{% endblock 'main' %}
+
+

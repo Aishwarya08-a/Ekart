@@ -1,0 +1,26 @@
+/* footer */
+
+.anchor {
+    text-decoration: none;
+}
+
+.anchor strong {
+    color: white;
+}
+
+.social {
+    display: inline-block;
+}
+
+.social a {
+    color: white;
+    margin-right: 8px;
+}
+
+/* index */
+
+.filter {
+    color: black;
+}
+
+
